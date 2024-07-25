@@ -1,0 +1,33 @@
+@import url('./variable.css');
+@import url('./input.css');
+@import url('./button.css');
+@import url('./table.css');
+@import url('./icons.css');
+
+/* tailwind base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+/* DForm styling */
+._df_ErrMsg {
+	@apply text-red-500 text-xs md:text-sm;
+}
+
+.content {
+    height: 100vh;
+}
+
+.box {
+    padding: 20px;
+}

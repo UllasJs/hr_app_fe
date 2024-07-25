@@ -1,0 +1,25 @@
+@import url('./variable.css');
+
+.btn {
+    font-weight: 500;
+    padding: 3px 10px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn.btn-login {
+    background-color: var(--primary);
+    color: white;
+    width: 100%;
+    padding: 8px 24px;
+    border: none;
+    transition: all 200ms ease-in-out;
+}
+
+.btn.btn-login:hover {
+    /* background-color: var(--primary); */
+    border-radius: 30px;
+    opacity: 0.8;
+}

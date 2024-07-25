@@ -1,0 +1,50 @@
+@import url('./variable.css');
+
+
+.o-input {
+    display: block;
+    width: 100%;
+    padding: var(--o-padding);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--o-text);
+    background-color: var(--o-bg);
+    background-clip: padding-box;
+    border-style: solid;
+    border-width: var(--o-border-width);
+    border-color: var(--o-border-color);
+    /* border: var(--o-border-width) solid var(--o-border-color); */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: var(--o-border-radius);
+    transition: all 0.2s;
+    box-shadow: var(--o-shadow);
+    outline: none;
+}
+
+.o-input:focus {
+    color: var(--o-text);
+    background-color: var(--o-bg);
+    border-color: var(--primary);
+    outline: 0;
+    box-shadow: var(--o-shadow-focus);
+}
+
+.o-input:disabled {
+    background-color: var(--o-disabled);
+    opacity: 1;
+}
+
+.o-input.o-password::-ms-reveal, .o-input.o-password::-ms-clear {
+    display: none;
+}
+
+input[type="number"].o-number::-webkit-outer-spin-button, input[type="number"].o-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"].o-number {
+    -moz-appearance: textfield;
+}

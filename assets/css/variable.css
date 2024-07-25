@@ -1,0 +1,23 @@
+
+
+:root {
+    /* --primary: #5464F1;
+    --primary-light: #5464F11a;
+    --head-text: #4B4774;
+    --head-text-light: #4B47741a; */
+
+    --primary: #5d00ff; /* purple color */ 
+    --primary-light: #5d00ff1a;
+    --head-text: #1d2c38;
+    --head-text-light: #1d2c381A;
+
+
+    /* input variable  */
+    --o-padding: 0.5em 0.6em;
+    --o-disabled: #D6D6D6;
+    --o-border-radius: 5px;
+    --o-border-width: 1px;
+    /* --o-border-color: #94a3b8; */
+    --o-border-color: #D8D8D8;
+    --o-text: #0f172a;
+}
