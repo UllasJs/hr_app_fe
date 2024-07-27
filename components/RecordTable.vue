@@ -15,7 +15,7 @@ const page = ref(1)
 const paginate = ref(10)
 
 watch(() => page.value, (v) => {
-  getList(props.api, {...props.payload, page: v, paginate: paginate.value })
+  getList(props.api, { ...props.payload, page: v, paginate: paginate.value })
 })
 
 onMounted(async () => {
