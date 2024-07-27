@@ -54,6 +54,7 @@ const login = async (e) => {
         cookie.value = res.token
         userStore.setLoggedIn(res.success)
         loggedIn.value = res.success
+        sessionStorage.setItem('user', JSON.stringify(userStore.user))
         // refresh to change the token cookie cache issue
         router.replace('/dashboard').then(() => {
             window.location.reload();

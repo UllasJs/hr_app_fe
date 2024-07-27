@@ -16,18 +16,20 @@
             </div>
         </div>
         <div v-if="open">
-            <div v-for="(category, name) in menuStore.data" class="sidebar-item-container">
-                <template v-if="Array.isArray(category)">
-                    <div class="text-headtext font-bold py-3 px-4 uppercase mt-4 side-title"
-                        v-if="open">{{ name }}</div>
-                    <div class="side-content">
-                        <SideBarItem v-for="m in category" :data="m" :key="m"
-                            class="text-[#767676] side-content-item" />
-                    </div>
-                </template>
-                <template v-else-if="typeof category == 'object'">
-                    <SideBarItem :data="category" />
-                </template>
+            <div class="overflow-auto light-scrollbar max-h-[800px] h-[calc(100vh-100px)]">
+                <div v-for="(category, name) in menuStore.data" class="sidebar-item-container">
+                    <template v-if="Array.isArray(category)">
+                        <div class="text-headtext font-bold py-3 px-4 uppercase mt-4 side-title" v-if="open">{{ name }}
+                        </div>
+                        <div class="side-content">
+                            <SideBarItem v-for="m in category" :data="m" :key="m"
+                                class="text-[#767676] side-content-item" />
+                        </div>
+                    </template>
+                    <template v-else-if="typeof category == 'object'">
+                        <SideBarItem :data="category" />
+                    </template>
+                </div>
             </div>
         </div>
     </div>

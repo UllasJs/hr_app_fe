@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div>
-            <button class="btn btn-login" @click="refresh++">refresh</button>
+            <button class="btn !w-fit btn-login" @click="refresh++">refresh</button>
         </div>
         <div class="box">
             <RecordTable api="admin/get-users" :key="refresh" :payload="{}">

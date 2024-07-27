@@ -26,8 +26,24 @@ body {
 
 .content {
     height: 100vh;
+    margin-top: 4.2rem;
+    background-color: var(--body);
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .box {
     padding: 20px;
+    background-color: #fff;
+}
+
+.light-scrollbar::-webkit-scrollbar-thumb {
+	width: 8px;
+	background-color: #c8c8c8;
+}
+
+.light-scrollbar::-webkit-scrollbar {
+	width: 8px;
+	background-color: transparent;
 }
