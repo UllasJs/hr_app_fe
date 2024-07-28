@@ -9,7 +9,13 @@ export const useMenuStore = defineStore("menu", {
           id: 1,
           permissions: [],
         },
-        personnel: [
+        request:{
+          slug: "request",
+          link: "/request",
+          id: 6,
+          permissions: [],
+        },
+        management: [
           {
             slug: "admin management",
             sub_links: [
@@ -20,8 +26,8 @@ export const useMenuStore = defineStore("menu", {
                 permissions: [],
               },
               {
-                slug: "roles",
-                link: "/admins/roles",
+                slug: "department",
+                link: "/admins/department",
                 id: 3,
                 permissions: [],
               }
@@ -37,12 +43,31 @@ export const useMenuStore = defineStore("menu", {
                 permissions: [],
               },
               {
-                slug: "head staff",
-                link: "/staff/head-staff",
+                slug: "attendance",
+                link: "/staff/attendance",
                 id: 5,
+                permissions: [],
+              },
+              {
+                slug: "payrole",
+                link: "/staff/payrole",
+                id: 7,
                 permissions: [],
               }
             ],
+          }
+        ],
+        project: [
+          {
+            slug: "project management",
+            sub_links: [
+              {
+                slug: "projects",
+                link: "/projects/projects-list",
+                id: 8,
+                permissions: [],
+              }
+            ]
           }
         ],
       },

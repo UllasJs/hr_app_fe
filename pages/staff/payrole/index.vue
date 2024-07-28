@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        Roles
+        Pay
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <div class="parent">
         <template v-if="data.link">
-            <NuxtLink :to="data.link" class="head capitalize px-3 py-2 transition-all flex gap-3 my-4 mx-2">
+            <NuxtLink :to="data.link" class="head capitalize border-transparent px-3 py-2 transition-all flex gap-3 my-2 mx-2">
                 <span>{{ data.slug }}</span>
             </NuxtLink>
         </template>
@@ -124,12 +124,13 @@ const checkRoute = (tabLink) => {
 .head {
     border-radius: 6px;
     display: flex;
+    border: 1px solid transparent;
     align-items: center;
 }
 
 .router-link-active .head {
-    color: black;
-    font-weight: 500;
+    color: var(--head-text);
+    font-weight: 600;
     background: #e8eaee;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;

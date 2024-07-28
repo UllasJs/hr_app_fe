@@ -23,6 +23,27 @@ onMounted(async () => {
   })
 })
 
+let root = null
+let sizeTimer = null;
+const syncHeight = () => {
+  if (sizeTimer) {
+    clearTimeout(sizeTimer);
+    sizeTimer = null;
+  }
+  sizeTimer = setTimeout(() => {
+    root.style.setProperty('--window-height', `${window.innerHeight - 1}px`);
+    clearTimeout(sizeTimer);
+    sizeTimer = null;
+  }, 150)
+}
+onMounted(() => {
+  nextTick(() => {
+    root = document.documentElement;
+    window.addEventListener('resize', syncHeight);
+    syncHeight()
+  })
+})
+
 </script>
 
 <style>

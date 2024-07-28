@@ -4,7 +4,7 @@
             <button class="btn !w-fit btn-login" @click="refresh++">refresh</button>
         </div>
         <div class="box">
-            <RecordTable api="admin/get-users" :key="refresh" :payload="{}">
+            <RecordTable api="admin/get-users" :payload="{}">
                 <template #head>
                     <tr>
                         <th>Name</th>

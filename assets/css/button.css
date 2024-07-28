@@ -23,3 +23,16 @@
     border-radius: 30px;
     opacity: 0.8;
 }
+
+.btn-add {
+    background-color: var(--btn-green-light);
+    color: #1d2c38;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 0 !important;
+    border: 1px solid var(--btn-green) !important;
+    padding: 8px 24px;
+    border: none;
+    transition: all 200ms ease-in-out;
+    margin-right: 10px;
+}
