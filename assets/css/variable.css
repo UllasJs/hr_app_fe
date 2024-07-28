@@ -6,11 +6,15 @@
     --head-text: #4B4774;
     --head-text-light: #4B47741a; */
 
-    --primary: #5d00ff; /* purple color */ 
+    --primary: #5d00ff;
     --primary-light: #5d00ff1a;
     --head-text: #1d2c38;
     --head-text-light: #1d2c381A;
     --body: #f2f2f3;
+
+    /* button variable  */
+    --btn-green: #00ff00;
+    --btn-green-light: #00ff001A;
 
     /* input variable  */
     --o-padding: 0.5em 0.6em;
