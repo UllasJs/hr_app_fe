@@ -32,6 +32,7 @@
 
 <script setup>
 const userStore = useUserStore()
+const localePath = useLocalePath()
 const cookie = useCookie('userToken')
 const username = ref('')
 const router = useRouter()
@@ -56,9 +57,9 @@ const login = async (e) => {
         loggedIn.value = res.success
         sessionStorage.setItem('user', JSON.stringify(userStore.user))
         // refresh to change the token cookie cache issue
-        router.replace('/dashboard').then(() => {
-            window.location.reload();
-        });
+        navigateTo(localePath('/dashboard'), {
+            replace: true
+        })
     } else {
         console.log('Login failed')
     }
@@ -66,7 +67,7 @@ const login = async (e) => {
 
 onMounted(() => {
     if (loggedIn.value) {
-        navigateTo('/dashboard', {
+        navigateTo(localePath('/dashboard'), {
             replace: true
         })
     }

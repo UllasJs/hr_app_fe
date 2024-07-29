@@ -1,0 +1,15 @@
+{
+    "dashboard": "Dashboard",
+    "request": "Request",
+    "management": "Management",
+    "admin_management": "Admin Management",
+    "employee_management": "Employee Management",
+    "admin": "Admins",
+    "department": "Department",
+    "employees": "Employees",
+    "attendance": "Attendance",
+    "payrole": "Payrole",
+    "project": "Project",
+    "project_management": "Project Management",
+    "projects": "Projects"
+}
