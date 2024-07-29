@@ -19,7 +19,8 @@
             <div class="overflow-auto light-scrollbar max-h-[800px] h-[calc(100vh-100px)]">
                 <div v-for="(category, name) in menuStore.data" class="sidebar-item-container">
                     <template v-if="Array.isArray(category)">
-                        <div class="text-headtext font-bold py-3 px-4 uppercase mt-4 side-title" v-if="open">{{ name }}
+                        <div class="text-headtext font-bold py-3 px-4 uppercase mt-4 side-title" v-if="open">{{ $t(name)
+                            }}
                         </div>
                         <div class="side-content">
                             <SideBarItem v-for="m in category" :data="m" :key="m"
@@ -36,6 +37,7 @@
 </template>
 
 <script setup>
+const {t} = useI18n()
 const userStore = useUserStore()
 const appStore = useAppStore()
 const menuStore = useMenuStore()

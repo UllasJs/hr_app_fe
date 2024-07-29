@@ -17,7 +17,7 @@ export const useMenuStore = defineStore("menu", {
         },
         management: [
           {
-            slug: "admin management",
+            slug: "admin_management",
             sub_links: [
               {
                 slug: "admin",
@@ -34,7 +34,7 @@ export const useMenuStore = defineStore("menu", {
             ],
           },
           {
-            slug: "employee management",
+            slug: "employee_management",
             sub_links: [
               {
                 slug: "employees",
@@ -59,7 +59,7 @@ export const useMenuStore = defineStore("menu", {
         ],
         project: [
           {
-            slug: "project management",
+            slug: "project_management",
             sub_links: [
               {
                 slug: "projects",

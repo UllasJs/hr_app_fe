@@ -1,8 +1,9 @@
 <template>
     <div class="parent">
         <template v-if="data.link">
-            <NuxtLink :to="data.link" class="head capitalize border-transparent px-3 py-2 transition-all flex gap-3 my-2 mx-2">
-                <span>{{ data.slug }}</span>
+            <NuxtLink :to="localePath(data.link)"
+                class="head capitalize border-transparent px-3 py-2 transition-all flex gap-3 my-2 mx-2">
+                <span>{{ $t(data.slug) }}</span>
             </NuxtLink>
         </template>
         <template v-else-if="data.sub_links">
@@ -14,7 +15,7 @@
                             <button
                                 class="flex justify-between overflow-hidden items-center head py-2 transition-all w-full">
                                 <div class="pl-5 ps-3 flex-grow flex capitalize text-nowrap items-center gap-3">
-                                    <span v-show="open">{{ data.slug }}</span>
+                                    <span v-show="open">{{ $t(data.slug) }}</span>
                                 </div>
                                 <div v-if="appStore.sideBarOpen" class="pr-3 flex-shrink-0">
                                     <div class="rotate-[270deg] transition-all duration-300"
@@ -32,10 +33,10 @@
                     <template #body v-if="open">
                         <template v-for="s in data.sub_links" :key="s.link">
                             <div class="px-2">
-                                <NuxtLink :to="s.link"
+                                <NuxtLink :to="localePath(s.link)"
                                     class="link border border-transparent capitalize px-3 py-1 items-center transition-all flex gap-3 my-1 mx-2">
-                                    <span class="bullet-icon" :class="{ 'bg-headtext': route.path == s.link }"></span>
-                                    <span>{{ s.slug }}</span>
+                                    <span class="bullet-icon" :class="{ 'bg-headtext': checkRoute(s.link) }"></span>
+                                    <span>{{ $t(s.slug) }}</span>
                                 </NuxtLink>
                             </div>
                         </template>
@@ -48,7 +49,9 @@
 
 <script setup>
 const route = useRoute()
+const { t } = useI18n()
 const appStore = useAppStore()
+const localePath = useLocalePath()
 const props = defineProps({
     data: {
         type: Object
@@ -112,7 +115,6 @@ const checkRoute = (tabLink) => {
 </script>
 
 <style scoped>
-
 .router-link-active {
     color: #4b4774;
     font-weight: 500;
