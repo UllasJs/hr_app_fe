@@ -15,7 +15,7 @@ export const useApi = () => {
       return;
     };
     const res = await $get(api, params);
-    if (res.success) {
+    if (res?.success) {
       pages.value[params.page - 1] = res.data;
       rowPage.value[params.page - 1] = res?.pagination;
       additional.value = res?.additional || {};

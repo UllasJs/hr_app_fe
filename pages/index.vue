@@ -57,9 +57,9 @@ const login = async (e) => {
         loggedIn.value = res.success
         sessionStorage.setItem('user', JSON.stringify(userStore.user))
         // refresh to change the token cookie cache issue
-        navigateTo(localePath('/dashboard'), {
-            replace: true
-        })
+        router.replace("/").then(() => {
+          window.location.reload();
+        });
     } else {
         console.log('Login failed')
     }

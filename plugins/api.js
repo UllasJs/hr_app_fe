@@ -4,6 +4,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   const isLoggedIn = useCookie("isLoggedIn");
   const token = useCookie("userToken");
   const config = useRuntimeConfig();
+  const router = useRouter();
+  const localePath = useLocalePath();
 
   const handleError = (error) => {
     if (error.response) {
@@ -11,12 +13,12 @@ export default defineNuxtPlugin((nuxtApp) => {
       console.log(error.response.data);
 
       // Session expired logic
-      if (error.response.data && !error.response.data.success) {
+      if (!error.response.data.success) {
         alert("Session Expired!");
+        token.value = null;
         isLoggedIn.value = false;
-        token.value = "";
-        navigateTo("/", {
-          replace: true,
+        router.replace("/").then(() => {
+          window.location.reload();
         });
       }
     } else if (error.request) {
@@ -26,7 +28,6 @@ export default defineNuxtPlugin((nuxtApp) => {
       // Something happened in setting up the request that triggered an Error
       console.log("Error:", error.message);
     }
-
     // Optional: return a default value or throw the error to be handled by the caller
     return null;
   };
@@ -38,11 +39,10 @@ export default defineNuxtPlugin((nuxtApp) => {
           Authorization: `Bearer ${token.value}`,
         },
         params: params,
-      },
-    );
+      });
       return response.data;
     } catch (error) {
-      return handleError(error);
+      handleError(error);
     }
   };
 
