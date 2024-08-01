@@ -2,7 +2,7 @@
     <div class="parent">
         <template v-if="data.link">
             <NuxtLink :to="localePath(data.link)"
-                class="head capitalize border-transparent px-3 py-2 transition-all flex gap-3 my-2 mx-2">
+                class="head capitalize border-transparent text-primaryText px-3 py-2 transition-all flex gap-3 my-2 mx-2">
                 <span>{{ $t(data.slug) }}</span>
             </NuxtLink>
         </template>
@@ -13,7 +13,7 @@
                     <template #head="collapseHeadData">
                         <div @mouseenter="handleOver" class="menu-btn mt-2 mx-2" ref="menuEl">
                             <button
-                                class="flex justify-between overflow-hidden items-center head py-2 transition-all w-full">
+                                class="flex justify-between overflow-hidden items-center text-primaryText head py-2 transition-all w-full">
                                 <div class="pl-5 ps-3 flex-grow flex capitalize text-nowrap items-center gap-3">
                                     <span v-show="open">{{ $t(data.slug) }}</span>
                                 </div>
@@ -35,7 +35,7 @@
                             <div class="px-2">
                                 <NuxtLink :to="localePath(s.link)"
                                     class="link border border-transparent capitalize px-3 py-1 items-center transition-all flex gap-3 my-1 mx-2">
-                                    <span class="bullet-icon" :class="{ 'bg-headtext': checkRoute(s.link) }"></span>
+                                    <span class="bullet-icon" :class="{ 'router-link-active ': checkRoute(s.link) }"></span>
                                     <span>{{ $t(s.slug) }}</span>
                                 </NuxtLink>
                             </div>
@@ -116,53 +116,55 @@ const checkRoute = (tabLink) => {
 
 <style scoped>
 .router-link-active {
-    color: #4b4774;
+    /* color: var(--text-primary); */
     font-weight: 500;
-    background: #c0c7d54d;
-    border: 1px solid var(--o-border-color);
-    border-radius: 6px;
+    /* background: var(--primary);
+    border: 1px solid var(--primary); */
 }
 
 .head {
-    border-radius: 6px;
     display: flex;
     border: 1px solid transparent;
+    font-weight: 500;
+    /* color: var(--head-text); */
     align-items: center;
 }
 
 .router-link-active .head {
-    color: var(--head-text);
-    font-weight: 600;
-    background: #e8eaee;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    /* color: var(--head-text); */
+    font-weight: 500;
+    /* background: var(--primary-light); */
 }
 
 .parent:has(.router-link-active) .head {
-    color: black;
-    font-weight: 500;
+    /* color: var(--primary); */
     display: flex;
-    background: #e8eaee;
+    /* background: var(--primary-light); */
     align-items: center;
 }
 
 .link:hover {
-    background: #c0c7d54d;
-    border-radius: 6px;
+    /* color: var(--text-hover); */
+    /* background-color: var(--primary) */
 }
 
 .link .bullet-icon {
     display: block;
     width: 10px;
     height: 10px;
-    border: 1px solid var(--o-border-color);
+    /* border: 1px solid var(--head-text); */
     border-radius: 50%;
 }
 
-.head:hover {
-    color: black;
-    font-weight: 500;
-    background: #e8eaee;
-    border-radius: 6px;
+.link:hover .bullet-icon {
+    /* border: 1px solid var(--text-hover); */
+    /* background-color: var(--text-hover); */
 }
+
+.head:hover {
+    /* color: var(--text-hover); */
+    font-weight: 500;
+    /* background: var(--primary); */
+}
+
 </style>

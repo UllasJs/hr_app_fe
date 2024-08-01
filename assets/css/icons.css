@@ -54,3 +54,17 @@
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
+
+.three-dot-spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='4' cy='12' r='3' fill='%23000'%3E%3Canimate id='svgSpinners3DotsScale0' attributeName='r' begin='0;svgSpinners3DotsScale1.end-0.25s' dur='0.75s' values='3;.2;3'/%3E%3C/circle%3E%3Ccircle cx='12' cy='12' r='3' fill='%23000'%3E%3Canimate attributeName='r' begin='svgSpinners3DotsScale0.end-0.6s' dur='0.75s' values='3;.2;3'/%3E%3C/circle%3E%3Ccircle cx='20' cy='12' r='3' fill='%23000'%3E%3Canimate id='svgSpinners3DotsScale1' attributeName='r' begin='svgSpinners3DotsScale0.end-0.45s' dur='0.75s' values='3;.2;3'/%3E%3C/circle%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}

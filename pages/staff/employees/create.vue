@@ -61,7 +61,7 @@
                         <input type="text" class="o-input" v-model="payload.currentBasicSalary" />
                     </div>
                     <div class="space-y-2">
-                        <div>{{$t('current_status')}}</div>
+                        <div>{{ $t('current_status') }}</div>
                         <select name="status" class="o-input" v-model="payload.currentStatus">
                             <option value="on-going">On Going</option>
                             <option value="active" selected>Active</option>
@@ -103,23 +103,43 @@
                     <h1 class="text-xl py-1 font-bold">{{ $t('visa_and_other_details') }}</h1>
                 </div>
                 <hr />
-                <div class="input-group-xl py-3 capitalize">
+                <div class="input-group-sm py-3 capitalize">
                     <div class="space-y-2">
                         <div>{{ $t('eid_no') }}</div>
                         <input type="text" class="o-input" v-model="payload.eid_no" />
                     </div>
                     <div class="space-y-2">
-                        <div>{{ $t('account_number') }}</div>
-                        <input type="text" class="o-input" v-model="payload.accNum" />
+                        <div>{{ $t('eid_no_expiry_date') }}</div>
+                        <input type="date" class="o-input uppercase" v-model="payload.eidExpiry" />
                     </div>
                     <div class="space-y-2">
-                        <div>{{ $t('IBAN') }}</div>
-                        <input type="text" class="o-input" v-model="payload.iban" />
+                        <div>{{ $t('labour_card_no') }}</div>
+                        <input type="text" class="o-input" v-model="payload.labourCardNo" />
+                    </div>
+                    <div class="space-y-2">
+                        <div>{{ $t('labour_card_no_expiry_date') }}</div>
+                        <input type="date" class="o-input uppercase" v-model="payload.labourCardNoExpiry" />
+                    </div>
+                    <div class="space-y-2">
+                        <div>{{ $t('visa_type') }}</div>
+                        <select v-model="payload.visa_type" class="o-input">
+                            <option value="vip">{{ $t('vip') }}</option>
+                            <option value="standard">{{ $t('standard') }}</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <div>{{ $t('designation_as_per_VISA') }}</div>
+                        <input type="text" class="o-input" v-model="payload.visa_designation" />
+                    </div>
+                    <div class="space-y-2">
+                        <div>{{ $t('visa_expiry_date') }}</div>
+                        <input type="date" class="o-input uppercase" v-model="payload.visa_expiry" />
                     </div>
                 </div>
             </div>
             <div class="my-5 flex justify-center gap-5 items-center">
-                <button type="button" @click="()=>navigateTo(localePath('/staff/employees'))" class="btn">{{ $t('cancel') }}</button>
+                <button type="button" @click="() => navigateTo(localePath('/staff/employees'))" class="btn">{{
+                    $t('cancel') }}</button>
                 <button class="btn btn-add">{{ $t('register') }}</button>
             </div>
         </DForm>
@@ -152,6 +172,12 @@ const defaultPayload = {
     dateOfResign: '',
     bankName: '',
     accNum: '',
+    eidExpiry: '',
+    iban: '',
+    labourCardNo: '',
+    labourCardNoExpiry: '',
+    visa_type: '',
+    visa_designation: ''
 }
 
 const payload = reactive({ ...defaultPayload })
