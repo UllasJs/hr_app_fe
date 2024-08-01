@@ -11,16 +11,29 @@
 
 .btn.btn-login {
     background-color: var(--primary);
-    color: white;
+    color: var(--text-light);
     width: 100%;
     padding: 8px 24px;
     border: none;
+    border-radius: 8px;
     transition: all 200ms ease-in-out;
 }
 
+.btn.btn-logout {
+    background-color: var(--text-light);
+    color: var(--primary);
+    width: 100%;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 8px; 
+    transition: all 200ms ease-in-out;
+}
+
+.loading {
+    /* transform: (); */
+}
+
 .btn.btn-login:hover {
-    /* background-color: var(--primary); */
-    border-radius: 30px;
     opacity: 0.8;
 }
 

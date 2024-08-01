@@ -10,10 +10,10 @@
 const appStore = useAppStore();
 const userStore = useUserStore();
 onMounted(async () => {
-  const userData = sessionStorage.getItem('user')
+  const userData = localStorage.getItem('user')
   const user = JSON.parse(userData);
   if (user) {
-    userStore.setUser(user?.name, user?.id)
+    userStore.setUser(user?.user, user?.id)
   }
   nextTick(() => {
     appStore.updateDeviceWidth(window.innerWidth)
@@ -43,6 +43,7 @@ onMounted(() => {
     syncHeight()
   })
 })
+
 
 </script>
 
