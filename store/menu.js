@@ -9,7 +9,7 @@ export const useMenuStore = defineStore("menu", {
           id: 1,
           permissions: [],
         },
-        request:{
+        request: {
           slug: "request",
           link: "/request",
           id: 6,
@@ -17,57 +17,42 @@ export const useMenuStore = defineStore("menu", {
         },
         management: [
           {
-            slug: "admin_management",
-            sub_links: [
-              {
-                slug: "admin",
-                link: "/admins/admin",
-                id: 2,
-                permissions: [],
-              },
-              {
-                slug: "department",
-                link: "/admins/department",
-                id: 3,
-                permissions: [],
-              }
-            ],
+            slug: "admin",
+            link: "/admins/admin",
+            id: 2,
+            permissions: [],
           },
           {
-            slug: "employee_management",
-            sub_links: [
-              {
-                slug: "employees",
-                link: "/staff/employees",
-                id: 4,
-                permissions: [],
-              },
-              {
-                slug: "attendance",
-                link: "/staff/attendance",
-                id: 5,
-                permissions: [],
-              },
-              {
-                slug: "payrole",
-                link: "/staff/payrole",
-                id: 7,
-                permissions: [],
-              }
-            ],
+            slug: "department",
+            link: "/admins/department",
+            id: 3,
+            permissions: [],
+          },
+          {
+            slug: "employees",
+            link: "/staff/employees",
+            id: 4,
+            permissions: [],
+          },
+          {
+            slug: "attendance",
+            link: "/staff/attendance",
+            id: 5,
+            permissions: [],
+          },
+          {
+            slug: "payrole",
+            link: "/staff/payrole",
+            id: 7,
+            permissions: [],
           }
         ],
         project: [
           {
-            slug: "project_management",
-            sub_links: [
-              {
-                slug: "projects",
-                link: "/projects/projects-list",
-                id: 8,
-                permissions: [],
-              }
-            ]
+            slug: "projects",
+            link: "/projects/projects-list",
+            id: 8,
+            permissions: [],
           }
         ],
       },

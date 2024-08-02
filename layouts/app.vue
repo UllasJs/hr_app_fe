@@ -5,7 +5,7 @@
         <div class="max-h-full flex flex-col max-w-full grow overflow-y-auto transition-all duration-300 relative"
             :class="{ 'ml-[260px]': appStore.sideBarOpen && !appStore.deviceData.isMobile, 'ml-[60px]': !appStore.sideBarOpen && !appStore.deviceData.isMobile }">
             <Topbar />
-            <div class="w-full flex flex-col  overflow-x-hidden grow">
+            <div class="w-full flex flex-col  overflow-x-hidden light-scrollbar grow">
                 <slot />
             </div>
         </div>
