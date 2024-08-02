@@ -1,13 +1,13 @@
 <template>
-    <div class="fixed min-h-screen shadow-md z-[999] bg-body transition-all duration-300"
+    <div class="fixed min-h-screen shadow-md z-[999] bg-content transition-all duration-300"
         :class="{ 'w-[260px]': open, 'w-[60px]': !open && !appStore.deviceData.isMobile, 'w-[0px]': !open && appStore.deviceData.isMobile }">
-        <div class="flex justify-between items-center h-[5.2rem] px-3">
+        <div class="flex justify-between items-center h-[5.5rem] px-3">
             <div class="overflow-hidden font-black text-lg whitespace-nowrap" :class="{ 'w-0': !open }">
                 Hr Management
             </div>
             <div>
                 <button @click="appStore.sideBarOpen = !appStore.sideBarOpen" class="transition-all duration-300"
-                    :class="{ 'rotate-180': !open, 'ml-2': !open && appStore.deviceData.isMobile }">
+                    :class="{ 'rotate-180': !open, 'ml-4': !open && appStore.deviceData.isMobile }">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
                         <path fill="var(--primary)"
                             d="M21 18v2H3v-2zM6.596 3.903L8.01 5.318L4.828 8.5l3.182 3.182l-1.414 1.414L2 8.5zM21 11v2h-9v-2zm0-7v2h-9V4z" />

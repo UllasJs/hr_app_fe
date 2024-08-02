@@ -1,7 +1,7 @@
 <template>
     <div class="w-full min-h-screen flex justify-center items-center md:bg-body">
         <div
-            class="w-full h-full md:max-w-[400px] md:max-h-[600px] md:border border-primary rounded-lg md:pb-8 bg-box-body">
+            class="w-full h-full md:max-w-[400px] md:max-h-[600px] md:border border-primary rounded-lg md:pb-8 bg-content">
             <DForm @submit="login" novalidate>
                 <div class="flex flex-col items-center mt-5 py-5 gap-4">
                     <h1 class="text-4xl font-black uppercase">{{ $t('login') }}</h1>

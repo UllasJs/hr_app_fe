@@ -17,6 +17,7 @@
 
 body {
     font-family: 'Roboto Flex', sans-serif;
+    background-color: var(--body);
 }
 
 /* DForm styling */
@@ -26,8 +27,8 @@ body {
 
 .content {
     height: 100vh;
-    /* margin-top: 4.2rem; */
-    background-color: var(--content-bg);
+    margin-top: 4.2rem;
+    background-color: var(--body);
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -47,7 +48,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(0, 0, 0, 0.3);
-    background-color: var(--body);
+    background-color: var(--content);
 }
 
 .light-scrollbar::-webkit-scrollbar-thumb {
