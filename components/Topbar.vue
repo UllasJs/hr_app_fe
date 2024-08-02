@@ -1,10 +1,10 @@
 <template>
-    <div class="h-[4.2rem] bg-body flex sticky top-0 left-0 justify-center my-2 items-center">
-        <div class="flex h-[4rem] px-5 justify-between items-center w-[98%] bg-primary rounded-lg shadow-md">
+    <div class="h-[4.2rem] bg-content flex sticky top-0 left-0 justify-center my-2 items-center">
+        <div class="flex h-[4rem] px-5 justify-between items-center w-[98%] bg-body rounded-lg shadow-md">
             <div>
             </div>
             <div class="flex items-center justify-center gap-4">
-                <div class="font-semibold capitalize text-text-light px-4 py-2 rounded-lg border border-text-light">
+                <div class="font-semibold capitalize text-primary px-4 py-2 rounded-lg border border-primary">
                     {{ userStore.user.name }}
                 </div>
                 <!-- <button type="button" @click="ToggleDark">{{ isDark ? 'Light Mode' : 'Dark Mode' }}</button> -->

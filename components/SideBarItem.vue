@@ -2,7 +2,7 @@
     <div class="parent">
         <template v-if="data.link">
             <NuxtLink :to="localePath(data.link)"
-                class="head capitalize border-transparent text-primaryText px-3 py-2 transition-all flex gap-3 my-2 mx-2">
+                class="head capitalize border-transparent text-primaryText px-3 py-2 transition-all flex gap-3 my-2 mx-2" :class="{'router-link-active' : checkRoute(data.link)}">
                 <span>{{ $t(data.slug) }}</span>
             </NuxtLink>
         </template>
@@ -35,7 +35,7 @@
                             <div class="px-2">
                                 <NuxtLink :to="localePath(s.link)"
                                     class="link border border-transparent capitalize px-3 py-1 items-center transition-all flex gap-3 my-1 mx-2">
-                                    <span class="bullet-icon" :class="{ 'router-link-active ': checkRoute(s.link) }"></span>
+                                    <span class="bullet-icon" :class="{ 'router-link-active': checkRoute(s.link) }"></span>
                                     <span>{{ $t(s.slug) }}</span>
                                 </NuxtLink>
                             </div>
@@ -116,43 +116,48 @@ const checkRoute = (tabLink) => {
 
 <style scoped>
 .router-link-active {
-    /* color: var(--text-primary); */
-    font-weight: 500;
-    /* background: var(--primary);
-    border: 1px solid var(--primary); */
+    color: var(--text-light);
+    border-radius: 6px;
+    box-shadow: 1px 1px 10px var(--secondary);
+    background-color: var(--primary);
 }
 
 .head {
     display: flex;
     border: 1px solid transparent;
     font-weight: 500;
-    /* color: var(--head-text); */
+    color: var(--text-dark);
     align-items: center;
+    border-radius: 6px;
 }
 
 .router-link-active .head {
-    /* color: var(--head-text); */
+    color: var(--primary);
     font-weight: 500;
-    /* background: var(--primary-light); */
+    border-radius: 4px;
+    background: var(--primary-light);
 }
 
 .parent:has(.router-link-active) .head {
-    /* color: var(--primary); */
+    color: var(--text-light);
     display: flex;
-    /* background: var(--primary-light); */
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    background: var(--primary);
     align-items: center;
 }
 
 .link:hover {
-    /* color: var(--text-hover); */
-    /* background-color: var(--primary) */
+    color: var(--text-dark);
+    border: 1px solid var(--primary);
+    border-radius: 6px;
 }
 
 .link .bullet-icon {
     display: block;
     width: 10px;
     height: 10px;
-    /* border: 1px solid var(--head-text); */
+    background: var(--text-light);
+    border: 1px solid var(--secondary); 
     border-radius: 50%;
 }
 
@@ -162,9 +167,9 @@ const checkRoute = (tabLink) => {
 }
 
 .head:hover {
-    /* color: var(--text-hover); */
+    color: var(--text-head);
     font-weight: 500;
-    /* background: var(--primary); */
+    background: var(--primary-light);
 }
 
 </style>

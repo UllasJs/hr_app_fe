@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full min-h-screen flex justify-center items-center bg-body">
+    <div class="w-full min-h-screen flex justify-center items-center md:bg-body">
         <div
             class="w-full h-full md:max-w-[400px] md:max-h-[600px] md:border border-primary rounded-lg md:pb-8 bg-box-body">
             <DForm @submit="login" novalidate>

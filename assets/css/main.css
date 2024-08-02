@@ -26,11 +26,21 @@ body {
 
 .content {
     height: 100vh;
-    margin-top: 4.2rem;
+    /* margin-top: 4.2rem; */
     background-color: var(--content-bg);
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.content::-webkit-scrollbar-thumb {
+	width: 0px;
+	background-color: var(--body);
+}
+
+.content::-webkit-scrollbar {
+	width: 0px;
+	background-color: var(--body);
 }
 
 .box {

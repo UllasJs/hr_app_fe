@@ -1,15 +1,15 @@
 <template>
-    <div class="fixed min-h-screen shadow-md z-[999] bg-primary transition-all duration-300"
+    <div class="fixed min-h-screen shadow-md z-[999] bg-body transition-all duration-300"
         :class="{ 'w-[260px]': open, 'w-[60px]': !open && !appStore.deviceData.isMobile, 'w-[0px]': !open && appStore.deviceData.isMobile }">
         <div class="flex justify-between items-center h-[5.2rem] px-3">
-            <div class="overflow-hidden" :class="{ 'w-0': !open }">
-                Logo
+            <div class="overflow-hidden font-black text-lg whitespace-nowrap" :class="{ 'w-0': !open }">
+                Hr Management
             </div>
             <div>
                 <button @click="appStore.sideBarOpen = !appStore.sideBarOpen" class="transition-all duration-300"
                     :class="{ 'rotate-180': !open, 'ml-2': !open && appStore.deviceData.isMobile }">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
-                        <path fill="#fff"
+                        <path fill="var(--primary)"
                             d="M21 18v2H3v-2zM6.596 3.903L8.01 5.318L4.828 8.5l3.182 3.182l-1.414 1.414L2 8.5zM21 11v2h-9v-2zm0-7v2h-9V4z" />
                     </svg>
                 </button>
@@ -19,7 +19,7 @@
             <div class="overflow-auto light-scrollbar max-h-[800px] h-[calc(100vh-100px)]">
                 <div v-for="(category, name) in menuStore.data" class="sidebar-item-container">
                     <template v-if="Array.isArray(category)">
-                        <div class="text-headtext font-bold py-3 px-4 uppercase mt-4 side-title" v-if="open">{{ $t(name)
+                        <div class="text-secondary font-bold text-lg leading-tight tracking-widest py-3 px-4 uppercase mt-4 side-title" v-if="open">{{ $t(name)
                             }}
                         </div>
                         <div class="side-content">

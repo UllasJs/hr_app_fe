@@ -8,8 +8,11 @@ export default {
     extend: {
       colors: {
         primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
         headtext: 'var(--head-text)',
-        'text-light': 'VAR(--text-light)',
+        'text-light': 'var(--text-light)',
+        'text-dark': 'var(--text-dark)',
+        'text-gray': 'var(--text-gray)',
         'primaryText' :'var(--text-primary)',
         'TextHover' :'var(--text-hover)',
         body: 'var(--body)',
