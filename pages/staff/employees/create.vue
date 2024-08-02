@@ -169,6 +169,65 @@
                     </div>
                 </div>
             </div>
+            <div class="box my-5">
+                <div>
+                    <h1 class="text-xl py-1 font-bold">{{ $t('employee_insurance_details') }}</h1>
+                </div>
+                <hr />
+                <div class="input-group-sm py-3 capitalize">
+                    <div class="space-y-2">
+                        <div>{{ $t('eid_no') }}</div>
+                        <input type="text" class="o-input" v-model="payload.eid_no" />
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-start items-center gap-3">{{ $t('eid_no_expiry_date') }} <span
+                                class="text-sm text-text-gray">({{ getExpiryDays(payload.eid_expiry) || '-' }}) {{
+                                    $t('days_left')
+                                }}</span></div>
+                        <input type="date" class="o-input uppercase" v-model="payload.eid_expiry" />
+                    </div>
+                    <div class="space-y-2">
+                        <div>{{ $t('labour_card_no') }}</div>
+                        <input type="text" class="o-input" v-model="payload.labour_card_no" />
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-start items-center gap-3">{{ $t('labour_card_no_expiry_date') }} <span
+                                class="text-sm text-text-gray">({{ getExpiryDays(payload.labour_card_expiry) || '-' }})
+                                {{ $t('days_left')
+                                }}</span></div>
+                        <input type="date" class="o-input uppercase" v-model="payload.labour_card_expiry" />
+                    </div>
+                    <div class="space-y-2">
+                        <div>{{ $t('visa_type') }}</div>
+                        <select v-model="payload.visa_type" class="o-input">
+                            <option value="vip">{{ $t('vip') }}</option>
+                            <option value="standard">{{ $t('standard') }}</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <div>{{ $t('designation_as_per_VISA') }}</div>
+                        <input type="text" class="o-input" v-model="payload.visa_designation" />
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-start gap-3 items-center">{{ $t('visa_expiry_date') }} <span
+                                class="text-sm text-text-gray">({{ getExpiryDays(payload.visa_expiry) || '-' }}) {{
+                                    $t('days_left')
+                                }}</span></div>
+                        <input type="date" class="o-input uppercase" v-model="payload.visa_expiry" />
+                    </div>
+                    <div class="space-y-2">
+                        <div>{{ $t('passport_number') }}</div>
+                        <input type="number" class="o-input uppercase" v-model="payload.passport_no" />
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-start gap-3 items-center">{{ $t('passport_expiry') }} <span
+                                class="text-sm text-text-gray">({{ getExpiryDays(payload.passport_expiry) || '-' }}) {{
+                                    $t('days_left')
+                                }}</span></div>
+                        <input type="date" class="o-input uppercase" v-model="payload.passport_expiry" />
+                    </div>
+                </div>
+            </div>
             <div class="my-5 flex justify-center gap-5 items-center">
                 <button type="button" @click="() => navigateTo(localePath('/staff/employees'))" class="btn">{{
                     $t('cancel') }}</button>

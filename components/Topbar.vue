@@ -1,14 +1,15 @@
 <template>
-    <div class="h-[4.2rem] bg-content flex sticky top-0 left-0 justify-center my-2 items-center">
-        <div class="flex h-[4rem] px-5 justify-between items-center w-[98%] bg-body rounded-lg shadow-md">
+    <div class="h-[4.2rem] box-border transition-all duration-300 !bg-transparent flex fixed justify-center my-2 items-center"
+        :class="{ 'right-0': !appStore.deviceData.isMobile, 'w-full pl-5': appStore.deviceData.isMobile, 'w-minus-280': appStore.sideBarOpen && !appStore.deviceData.isMobile, 'w-minus-60 pl-5': !appStore.sideBarOpen && !appStore.deviceData.isMobile }">
+        <div class="flex h-[4rem] pr-5 flex-1 justify-between mr-5 items-center bg-content rounded-lg shadow-md">
             <div>
             </div>
             <div class="flex items-center justify-center gap-4">
-                <div class="font-semibold capitalize text-primary px-4 py-2 rounded-lg border border-primary">
+                <div class="font-semibold capitalize text-primary px-4 py-1 rounded-lg border border-primary">
                     {{ userStore.user.name }}
                 </div>
                 <!-- <button type="button" @click="ToggleDark">{{ isDark ? 'Light Mode' : 'Dark Mode' }}</button> -->
-                <button type="button" @click="Logout" class="btn btn-logout">{{ $t('logout') }}</button>
+                <button type="button" @click="Logout" class="btn btn-logout !py-1">{{ $t('logout') }}</button>
             </div>
         </div>
     </div>
@@ -54,3 +55,12 @@ onMounted(() => {
     }
 })
 </script>
+
+<style scoped>
+.w-minus-280 {
+    width: calc(100% - 280px);
+}
+.w-minus-60 {
+    width: calc(100% - 60px);
+}
+</style>

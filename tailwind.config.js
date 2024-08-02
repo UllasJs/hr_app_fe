@@ -16,7 +16,7 @@ export default {
         'primaryText' :'var(--text-primary)',
         'TextHover' :'var(--text-hover)',
         body: 'var(--body)',
-        'box-body': 'var(--box-body)'
+        'content': 'var(--box-body)'
       }
     },
   },
