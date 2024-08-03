@@ -3,7 +3,7 @@
         :class="{ 'w-[260px]': open, 'w-[60px]': !open && !appStore.deviceData.isMobile, 'w-[0px]': !open && appStore.deviceData.isMobile }">
         <div class="flex justify-between items-center h-[5.5rem] px-3">
             <div class="overflow-hidden font-black text-lg whitespace-nowrap" :class="{ 'w-0': !open }">
-                Hr Management
+                {{ $t('hr_management') }}
             </div>
             <div>
                 <button @click="appStore.sideBarOpen = !appStore.sideBarOpen" class="transition-all duration-300"

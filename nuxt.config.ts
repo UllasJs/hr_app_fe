@@ -24,6 +24,12 @@ export default defineNuxtConfig({
             file: "en.json",
             countryCode: "us",
           },
+          {
+            code: "ar-ae",
+            name: "Arabic",
+            file: "ar.json",
+            countryCode: "ae",
+          },
         ],
       },
     ],
