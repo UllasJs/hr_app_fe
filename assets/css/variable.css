@@ -20,6 +20,9 @@
   --box-body: #fff;
   --body: #F4F5F7;
 
+  /* scrollbar colors  */
+  --light-scroll: #c8c8c8;
+
   /* button variable  */
   --btn-green: #00ff00;
   --btn-green-light: #00ff001a;
