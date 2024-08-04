@@ -81,5 +81,7 @@
   "employee_id": "Employee ID",
 
   "company_report": "Company Report",
-  "employee_reports": "Employee Reports"
+  "employee_reports": "Employee Reports",
+  "registered": "Registered",
+  "action": "Action"
 }

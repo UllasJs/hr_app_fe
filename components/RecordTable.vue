@@ -24,25 +24,27 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="overflow-x-auto">
+  <div>
     <div>
       <ExportButton />
     </div>
-    <table class="main-table mt-4">
-      <thead v-if="loading">
-        <tr v-for="r in 10">
-          <th v-for="v in 5" class="py-3 !bg-transparent h-[2rem]">
-            <div class="table-skeleton"></div>
-          </th>
-        </tr>
-      </thead>
-      <thead v-if="!loading && rows.length > 0">
-        <slot name="head" />
-      </thead>
-      <tbody v-if="!loading && rows.length > 0">
-        <slot name="body" :rows="rows" :additional="additional" :paginate="paginate" />
-      </tbody>
-    </table>
+    <div class="w-full overflow-x-auto">
+      <table class="main-table mt-4">
+        <thead v-if="loading">
+          <tr v-for="r in 10">
+            <th v-for="v in 5" class="py-3 !bg-transparent h-[2rem]">
+              <div class="table-skeleton"></div>
+            </th>
+          </tr>
+        </thead>
+        <thead v-if="!loading && rows.length > 0">
+          <slot name="head" />
+        </thead>
+        <tbody v-if="!loading && rows.length > 0">
+          <slot name="body" :rows="rows" :additional="additional" :paginate="paginate" />
+        </tbody>
+      </table>
+    </div>
     <div class="mt-4" v-if="pagination">
       <Pagination :pagination="pagination" :loading="loading" v-model="page" />
     </div>
