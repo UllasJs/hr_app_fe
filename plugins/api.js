@@ -2,24 +2,20 @@ import axios from "axios";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const isLoggedIn = useCookie("isLoggedIn");
-  const token = useCookie("userToken");
   const config = useRuntimeConfig();
   const router = useRouter();
   const localePath = useLocalePath();
 
   const handleError = (error) => {
+    const token = useCookie("userToken");
     if (error.response) {
-      // Log the error response data
-      if (error.status > 400) {
-        // Session expired logic
-        if (!error.response.data.success) { 
-          alert("Session Expired!");
-          token.value = null;
-          isLoggedIn.value = false;
-          router.replace("/").then(() => {
-            window.location.reload();
-          });
-        }
+      if (error.response.status === 401) {
+        alert("Session Expired!");
+        token.value = null;
+        isLoggedIn.value = false;
+        router.replace("/").then(() => {
+          window.location.reload();
+        });
       }
     } else if (error.request) {
       // The request was made but no response was received
@@ -30,15 +26,17 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
     // Optional: return a default value or throw the error to be handled by the caller
     return error.response?.data;
+
   };
 
   const get = async (route, params) => {
+    const token = useCookie("userToken");
     try {
       const response = await axios.get(`${config.public.API_DOMAIN}/${route}`, {
         headers: {
           Authorization: `Bearer ${token.value}`,
         },
-        params: params,
+        params,
       });
       return response.data;
     } catch (error) {
@@ -47,6 +45,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   };
 
   const post = async (route, params) => {
+    const token = useCookie("userToken");
     try {
       const response = await axios.post(
         `${config.public.API_DOMAIN}/${route}`,

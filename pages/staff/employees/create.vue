@@ -15,35 +15,53 @@
                     <div class="space-y-2">
                         <div>{{ $t('employee_id') }}</div>
                         <input type="text" class="o-input" v-model="payload.emp_id" />
+                        <div class="mt-1">
+                            <DError v-model="payload.emp_id" required />
+                        </div>
                     </div>
                     <div class="space-y-2">
                         <div>{{ $t('name') }}</div>
                         <input type="text" class="o-input" v-model="payload.name" />
+                        <div class="mt-1">
+                            <DError v-model="payload.name" required />
+                        </div>
                     </div>
                     <div class="space-y-2">
                         <div>{{ $t('age') }}</div>
                         <input type="number" class="o-input o-number" v-model="payload.age" />
+                        <div class="mt-1">
+                            <DError v-model="payload.age" required />
+                        </div>
                     </div>
                     <div class="space-y-2">
                         <div>{{ $t('nationality') }}</div>
                         <input type="text" class="o-input" v-model="payload.nationality" />
+                        <div class="mt-1">
+                            <DError v-model="payload.nationality" required />
+                        </div>
                     </div>
-                    <div class="space-y-2">
+                    <!-- <div class="space-y-2">
                         <div>{{ $t('airport_home_country') }}</div>
                         <input type="text" class="o-input" v-model="payload.home_country" />
-                    </div>
+                    </div> -->
                     <div class="space-y-2">
                         <div>{{ $t('date_of_birth') }}</div>
                         <input type="date" class="o-input uppercase" v-model="payload.dob" />
+                        <div class="mt-1">
+                            <DError v-model="payload.dob" required />
+                        </div>
                     </div>
                     <div class="space-y-2">
                         <div>{{ $t('mobile_number') }}</div>
                         <input type="number" class="o-input o-number" v-model="payload.mobile_num" />
+                        <div class="mt-1">
+                            <DError v-model="payload.mobile_num" required />
+                        </div>
                     </div>
-                    <div class="space-y-2">
+                    <!-- <div class="space-y-2">
                         <div>{{ $t('home_country_no') }}</div>
                         <input type="number" class="o-input o-input" v-model="payload.home_mobileno" />
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="box mt-5">
@@ -64,14 +82,14 @@
                         <div>{{ $t('basic_salary') }}</div>
                         <input type="text" class="o-input" v-model="payload.cur_basic_sal" />
                     </div>
-                    <div class="space-y-2">
+                    <!-- <div class="space-y-2">
                         <div>{{ $t('current_status') }}</div>
                         <select name="status" class="o-input" v-model="payload.cur_status">
                             <option value="on-going">On Going</option>
                             <option value="active" selected>Active</option>
                             <option value="inactive">In Active</option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="space-y-2">
                         <div>{{ $t('allowance') }}</div>
                         <input type="text" v-model="payload.allowance" class="o-input" />
@@ -94,7 +112,7 @@
                     </div>
                 </div>
             </div>
-            <div class="box my-5">
+            <!-- <div class="box my-5">
                 <div>
                     <h1 class="text-xl py-1 font-bold">{{ $t('bank_details') }}</h1>
                 </div>
@@ -113,7 +131,7 @@
                         <input type="text" class="o-input" v-model="payload.iban" />
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="box my-5">
                 <div>
                     <h1 class="text-xl py-1 font-bold">{{ $t('visa_and_other_details') }}</h1>

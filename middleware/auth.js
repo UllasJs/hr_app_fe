@@ -10,7 +10,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     }
   } else {
     if (to.path === localePath('/')) {
-      console.log('object')
       // Redirect to dashboard if trying to access the home page while logged in
       return navigateTo(localePath('/dashboard'));
     }

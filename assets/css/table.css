@@ -7,14 +7,15 @@
   border-spacing: 0;
 }
 .main-table th {
+  text-wrap: nowrap;
   border-top: 1px solid var(--o-border-color);
   border-bottom: 1px solid var(--o-border-color);
-  background-color: var(--primary-light);
-  color: var(--head-text);
+  background-color: var(--primary);
+  color: var(--text-light);
 }
 .main-table th,
 .main-table td {
-  padding: var(--o-padding);
+  padding: 0.54rem .65rem;
   text-align: center;
 }
 
