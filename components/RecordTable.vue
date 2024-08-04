@@ -44,7 +44,7 @@ onMounted(async () => {
       </tbody>
     </table>
     <div class="mt-4" v-if="pagination">
-      <Pagination :pagination="pagination" v-model="page" />
+      <Pagination :pagination="pagination" :loading="loading" v-model="page" />
     </div>
   </div>
 </template>

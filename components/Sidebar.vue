@@ -1,6 +1,6 @@
 <template>
     <div class="fixed min-h-screen shadow-md z-[999] bg-content transition-all duration-300"
-        :class="{ 'w-[260px]': open, 'w-[60px]': !open && !appStore.deviceData.isMobile, 'w-[0px]': !open && appStore.deviceData.isMobile }">
+        :class="{ 'w-[230px]': open, 'w-[60px]': !open && !appStore.deviceData.isMobile, 'w-[0px]': !open && appStore.deviceData.isMobile }">
         <div class="flex justify-between items-center h-[5.5rem] px-3">
             <div class="overflow-hidden font-black text-lg whitespace-nowrap" :class="{ 'w-0': !open }">
                 {{ $t('hr_management') }}
@@ -15,16 +15,16 @@
                 </button>
             </div>
         </div>
-        <div v-if="open">
+        <div>
             <div class="overflow-auto light-scrollbar max-h-[800px] h-[calc(100vh-100px)]">
                 <div v-for="(category, name) in menuStore.data" class="sidebar-item-container">
                     <template v-if="Array.isArray(category)">
-                        <div class="text-secondary font-bold text-lg leading-tight tracking-widest py-3 px-4 uppercase mt-4 side-title" v-if="open">{{ $t(name)
+                        <div class="text-secondary font-bold text-lg leading-tight tracking-widest py-3 px-4 uppercase mt-4 side-title"
+                            v-if="open">{{ $t(name)
                             }}
                         </div>
                         <div class="side-content">
-                            <SideBarItem v-for="m in category" :data="m" :key="m"
-                                class="side-content-item" />
+                            <SideBarItem v-for="m in category" :data="m" :key="m" class="side-content-item" />
                         </div>
                     </template>
                     <template v-else-if="typeof category == 'object'">
@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-const {t} = useI18n()
+const { t } = useI18n()
 const userStore = useUserStore()
 const appStore = useAppStore()
 const menuStore = useMenuStore()

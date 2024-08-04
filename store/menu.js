@@ -4,12 +4,14 @@ export const useMenuStore = defineStore("menu", {
     return {
       data: {
         dashboard: {
+          icon: "dashboard",
           slug: "dashboard",
           link: "/dashboard",
           id: 1,
           permissions: [],
         },
         request: {
+          icon: "request",
           slug: "request",
           link: "/request",
           id: 6,
@@ -17,30 +19,35 @@ export const useMenuStore = defineStore("menu", {
         },
         management: [
           {
+            icon: "admin",
             slug: "admin",
             link: "/admins/admin",
             id: 2,
             permissions: [],
           },
           {
+            icon: "department",
             slug: "department",
             link: "/admins/department",
             id: 3,
             permissions: [],
           },
           {
+            icon: "employees",
             slug: "employees",
             link: "/staff/employees",
             id: 4,
             permissions: [],
           },
           {
+            icon: "attendance",
             slug: "attendance",
             link: "/staff/attendance",
             id: 5,
             permissions: [],
           },
           {
+            icon: "payrole",
             slug: "payrole",
             link: "/staff/payrole",
             id: 7,
@@ -49,12 +56,22 @@ export const useMenuStore = defineStore("menu", {
         ],
         project: [
           {
+            icon: "projects",
             slug: "projects",
             link: "/projects/projects-list",
             id: 8,
             permissions: [],
           }
         ],
+        company_report: [
+          {
+            icon: "report",
+            slug: "employee_reports",
+            link: "/report/employ-report",
+            id: 9,
+            permissions: []
+          }
+        ]
       },
       linkMap: null, // will be populated with init() in action
     };

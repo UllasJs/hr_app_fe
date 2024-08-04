@@ -30,7 +30,7 @@
                     </div>
                     <div class="space-y-2">
                         <div>{{ $t('airport_home_country') }}</div>
-                        <input type="text" class="o-input" v-model="payload.air_home_country" />
+                        <input type="text" class="o-input" v-model="payload.home_country" />
                     </div>
                     <div class="space-y-2">
                         <div>{{ $t('date_of_birth') }}</div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="space-y-2">
                         <div>{{ $t('mobile_number') }}</div>
-                        <input type="number" class="o-input o-number" v-model="payload.uae_mob_no" />
+                        <input type="number" class="o-input o-number" v-model="payload.mobile_num" />
                     </div>
                     <div class="space-y-2">
                         <div>{{ $t('home_country_no') }}</div>
@@ -114,7 +114,7 @@
                     </div>
                 </div>
             </div>
-            <div class="box my-5">
+            <!-- <div class="box my-5">
                 <div>
                     <h1 class="text-xl py-1 font-bold">{{ $t('visa_and_other_details') }}</h1>
                 </div>
@@ -184,8 +184,9 @@
                         <input type="text" class="o-input" v-model="payload.unemployment_insurance" />
                     </div>
                     <div class="space-y-2">
-                        <div class="flex justify-start items-center gap-3">{{ $t('unemployment_insurance_expiry') }} <span
-                                class="text-sm text-text-gray">({{ getExpiryDays(payload.unemployment_insurance_expiry) || '-' }}) {{
+                        <div class="flex justify-start items-center gap-3">{{ $t('unemployment_insurance_expiry') }}
+                            <span class="text-sm text-text-gray">({{
+                                getExpiryDays(payload.unemployment_insurance_expiry) || '-' }}) {{
                                     $t('days_left')
                                 }}</span></div>
                         <input type="date" class="o-input uppercase" v-model="payload.unemployment_insurance_expiry" />
@@ -196,7 +197,8 @@
                     </div>
                     <div class="space-y-2">
                         <div class="flex justify-start items-center gap-3">{{ $t('health_insurance_expiry') }} <span
-                                class="text-sm text-text-gray">({{ getExpiryDays(payload.health_insurance_expiry) || '-' }}) {{
+                                class="text-sm text-text-gray">({{ getExpiryDays(payload.health_insurance_expiry) || '-'
+                                }}) {{
                                     $t('days_left')
                                 }}</span></div>
                         <input type="date" class="o-input uppercase" v-model="payload.health_insurance_expiry" />
@@ -207,7 +209,8 @@
                     </div>
                     <div class="space-y-2">
                         <div class="flex justify-start items-center gap-3">{{ $t('workman_insurance_expiry') }} <span
-                                class="text-sm text-text-gray">({{ getExpiryDays(payload.workman_insurance_expiry) || '-' }}) {{
+                                class="text-sm text-text-gray">({{ getExpiryDays(payload.workman_insurance_expiry) ||
+                                '-' }}) {{
                                     $t('days_left')
                                 }}</span></div>
                         <input type="date" class="o-input uppercase" v-model="payload.workman_insurance_expiry" />
@@ -232,7 +235,8 @@
                     </div>
                     <div class="space-y-2">
                         <div class="flex justify-start items-center gap-3">{{ $t('health_insurance_expiry') }} <span
-                                class="text-sm text-text-gray">({{ getExpiryDays(payload.health_insurance_expiry) || '-' }}) {{
+                                class="text-sm text-text-gray">({{ getExpiryDays(payload.health_insurance_expiry) || '-'
+                                }}) {{
                                     $t('days_left')
                                 }}</span></div>
                         <input type="date" class="o-input uppercase" v-model="payload.health_insurance_expiry" />
@@ -243,7 +247,8 @@
                     </div>
                     <div class="space-y-2">
                         <div class="flex justify-start items-center gap-3">{{ $t('workman_insurance_expiry') }} <span
-                                class="text-sm text-text-gray">({{ getExpiryDays(payload.workman_insurance_expiry) || '-' }}) {{
+                                class="text-sm text-text-gray">({{ getExpiryDays(payload.workman_insurance_expiry) ||
+                                '-' }}) {{
                                     $t('days_left')
                                 }}</span></div>
                         <input type="date" class="o-input uppercase" v-model="payload.workman_insurance_expiry" />
@@ -273,7 +278,7 @@
                         <input type="text" class="o-input" v-model="payload.total" />
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="my-5 flex justify-center gap-5 items-center">
                 <button type="button" @click="() => navigateTo(localePath('/staff/employees'))" class="btn">{{
                     $t('cancel') }}</button>
@@ -286,6 +291,7 @@
 <script setup>
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { $post } = useNuxtApp()
 useSeoMeta({
     title: 'Add Employee',
 })
@@ -298,9 +304,9 @@ const defaultPayload = {
     name: '',
     age: '',
     nationality: '',
-    air_home_country: '',
+    home_country: '',
     dob: '',
-    uae_mob_no: '',
+    mobile_num: '',
     home_mobileno: '',
     designation: '',
     date_of_join: '',
@@ -321,7 +327,7 @@ const defaultPayload = {
     passport_expiry: '',
     total_salary: '',
     unemployment_insurance: '',
-    unemployment_insurance_expiry: '',    
+    unemployment_insurance_expiry: '',
     health_insurance: '',
     health_insurance_expiry: '',
     b_s_cur_year: new Date().getFullYear(),
@@ -337,8 +343,10 @@ const defaultPayload = {
 
 const payload = reactive({ ...defaultPayload })
 
-const handleSubmit = () => {
-    console.log(payload)
+const handleSubmit = async (e) => {
+    if (!e.isValid) return
+    const res = await $post('employ/add-employ', {...payload})
+    console.log(res)
 }
 
 watch(() => payload.visa_expiry, (v) => {

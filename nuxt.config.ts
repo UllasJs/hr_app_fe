@@ -37,6 +37,9 @@ export default defineNuxtConfig({
   imports: {
     dirs: ["store"],
   },
+  app: {
+    keepalive: true
+  },
   css: [`~/assets/css/main.css`],
   devtools: { enabled: true },
   runtimeConfig: {

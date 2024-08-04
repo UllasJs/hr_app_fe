@@ -10,16 +10,16 @@ export default defineNuxtPlugin((nuxtApp) => {
   const handleError = (error) => {
     if (error.response) {
       // Log the error response data
-      console.log(error.response.data);
-
-      // Session expired logic
-      if (!error.response.data.success) {
-        alert("Session Expired!");
-        token.value = null;
-        isLoggedIn.value = false;
-        router.replace("/").then(() => {
-          window.location.reload();
-        });
+      if (error.status > 400) {
+        // Session expired logic
+        if (!error.response.data.success) { 
+          alert("Session Expired!");
+          token.value = null;
+          isLoggedIn.value = false;
+          router.replace("/").then(() => {
+            window.location.reload();
+          });
+        }
       }
     } else if (error.request) {
       // The request was made but no response was received
@@ -29,7 +29,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       console.log("Error:", error.message);
     }
     // Optional: return a default value or throw the error to be handled by the caller
-    return null;
+    return error.response?.data;
   };
 
   const get = async (route, params) => {

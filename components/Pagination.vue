@@ -11,6 +11,8 @@
                 v-if="(!showParticularFirstPage && pagination.last_page > 4) || pagination.last_page == 4 && props.modelValue > 2"
                 @click="updatePage(1)"><button class="page-btn-num" type="button">1</button>
             </div>
+            <div class="mr-1" v-if="loading"><button class="page-btn-num bg-primary text-white" type="button">{{ props.modelValue }}</button>
+            </div>
             <div v-if="!hidedecrementPageByTwo && pagination.last_page"> 4" class="px-2"><button type="button"
                     class="btn !text-[#848E9C] !p-2" @click="decrementPageByTwo">...</button></div>
             <div class="space-x-1" v-for="(num, index) in pagination.last_page" :key="index" @click="updatePage(num)">
@@ -34,10 +36,13 @@
 </template>
 
 <script setup>
+import Modal from './Modal.vue';
+
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
     modelValue: Number,
     pagination: Object,
+    loading: Boolean
 })
 const currentPage = ref(1)
 
