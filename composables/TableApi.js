@@ -8,12 +8,11 @@ export const useApi = () => {
   const page = ref(1);
 
   const getList = async (api, params) => {
-    loading.value = true;
     page.value = params.page;
     if (pages.value[params.page - 1]) {
-      loading.value = false;
       return;
     };
+    loading.value = true;
     const res = await $get(api, params);
     if (res?.success) {
       pages.value[params.page - 1] = res.data;

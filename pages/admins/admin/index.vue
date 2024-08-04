@@ -33,7 +33,8 @@
 <script setup>
 definePageMeta({
     layout: 'app',
-    middleware: ['auth']
+    middleware: ['auth'],
+    keepalive: true
 })
 const refresh = ref(0)
 const userStore = useUserStore()

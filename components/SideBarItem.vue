@@ -2,8 +2,14 @@
     <div class="parent">
         <template v-if="data.link">
             <NuxtLink :to="localePath(data.link)"
-                class="head capitalize border-transparent text-primaryText px-3 py-2 transition-all flex gap-3 my-2 mx-2" :class="{'router-link-active' : checkRoute(data.link)}">
-                <span>{{ $t(data.slug) }}</span>
+                class="head capitalize border-transparent text-primaryText px-3 py-1.5 transition-all duration-300 flex items-center gap-3 my-2 mx-2"
+                :class="{ 'router-link-active': checkRoute(data.link) }">
+                <div class="flex justify-center items-center text-lg">
+                    <span :class="`icon-${data.icon}`"></span>
+                </div>
+                <div class="overflow-hidden text-sm" :class="{ 'w-0': !open, 'w-fit': open }">
+                    <span>{{ $t(data.slug) }}</span>
+                </div>
             </NuxtLink>
         </template>
         <template v-else-if="data.sub_links">
@@ -30,12 +36,13 @@
                             </button>
                         </div>
                     </template>
-                    <template #body v-if="open">
+                    <template #body>
                         <template v-for="s in data.sub_links" :key="s.link">
                             <div class="px-2">
                                 <NuxtLink :to="localePath(s.link)"
                                     class="link border border-transparent capitalize px-3 py-1 items-center transition-all flex gap-3 my-1 mx-2">
-                                    <span class="bullet-icon" :class="{ 'router-link-active': checkRoute(s.link) }"></span>
+                                    <span class="bullet-icon"
+                                        :class="{ 'router-link-active': checkRoute(s.link) }"></span>
                                     <span>{{ $t(s.slug) }}</span>
                                 </NuxtLink>
                             </div>
@@ -157,7 +164,7 @@ const checkRoute = (tabLink) => {
     width: 10px;
     height: 10px;
     background: var(--text-light);
-    border: 1px solid var(--secondary); 
+    border: 1px solid var(--secondary);
     border-radius: 50%;
 }
 
@@ -171,5 +178,4 @@ const checkRoute = (tabLink) => {
     font-weight: 500;
     background: var(--primary-light);
 }
-
 </style>

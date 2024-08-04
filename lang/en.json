@@ -60,7 +60,6 @@
   "project_management": "Project Management",
   "projects": "Projects",
   "register_an_employee": "Register an Employee",
-
   "unemployment_insurance": "Unemployment Insurance",
   "unemployment_insurance_expiry": "Unemployment Insurance Expiry",
   "health_insurance": "Health Insurance",
@@ -79,5 +78,8 @@
   "balance_to_paid": "Balance to Paid",
   "reason": "Reason",
   "total": "Total",
-  "employee_id": "Employee ID"
+  "employee_id": "Employee ID",
+
+  "company_report": "Company Report",
+  "employee_reports": "Employee Reports"
 }

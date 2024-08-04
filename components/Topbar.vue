@@ -3,7 +3,7 @@
         :class="{ 'right-0': !appStore.deviceData.isMobile, 'w-full pl-5': appStore.deviceData.isMobile, 'w-minus-280': appStore.sideBarOpen && !appStore.deviceData.isMobile, 'w-minus-60 pl-5': !appStore.sideBarOpen && !appStore.deviceData.isMobile }">
         <div class="flex h-[4rem] pr-5 flex-1 justify-between mr-5 items-center bg-content rounded-lg shadow-md">
             <div class="pl-[20px]">
-                <button class="btn btn-login" type="button" @click="changeLocale">{{ code }}</button>
+                <button class="btn btn-login !py-1" type="button" @click="changeLocale">{{ code }}</button>
             </div>
             <div class="flex items-center justify-center gap-4">
                 <div class="font-semibold capitalize text-primary px-4 py-1 rounded-lg border border-primary">
@@ -71,7 +71,7 @@ onMounted(() => {
 
 <style scoped>
 .w-minus-280 {
-    width: calc(100% - 280px);
+    width: calc(100% - 250px);
 }
 .w-minus-60 {
     width: calc(100% - 60px);
