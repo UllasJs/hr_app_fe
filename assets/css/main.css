@@ -27,7 +27,7 @@ body {
 
 .content {
     height: 100svh;
-    margin-top: 5.2rem;
+    margin-top: 4.2rem;
     background-color: var(--body);
     padding: 20px;
     overflow-x: hidden;
@@ -46,9 +46,29 @@ body {
 }
 
 .box {
+    position: relative;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(0, 0, 0, 0.3);
+    z-index: 0;
+    border-radius: 6px;
+    background-color: var(--box-body);
+    border: 1px solid var(--primary);
+}
+
+.box-heading {
+    position: absolute;
+    top: -13px;
+    padding: 0 10px;
+}
+
+.box-heading::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border: 1px solid var(--primary);
+    z-index: -2;
     background-color: var(--box-body);
 }
 

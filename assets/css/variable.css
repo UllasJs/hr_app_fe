@@ -19,6 +19,8 @@
 
   --box-body: #fff;
   --body: #F4F5F7;
+  --box-body-dark: #1d2c38;
+  --body-dark: #000000;
 
   /* scrollbar colors  */
   --light-scroll: #c8c8c8;

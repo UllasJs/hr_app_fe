@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed min-h-screen shadow-md z-[999] bg-content transition-all duration-300"
+    <div class="fixed min-h-screen z-[999] bg-content transition-all duration-300"
         :class="{ 'w-[230px]': open, 'w-[60px]': !open && !appStore.deviceData.isMobile, 'w-[0px]': !open && appStore.deviceData.isMobile }">
         <div class="flex justify-between items-center h-[5.5rem] px-3">
             <div class="overflow-hidden font-black text-lg whitespace-nowrap" :class="{ 'w-0': !open }">
@@ -42,8 +42,6 @@ const userStore = useUserStore()
 const appStore = useAppStore()
 const menuStore = useMenuStore()
 const open = ref(false)
-
-
 watch(() => appStore.sideBarOpen, (v) => {
     open.value = v
 }, { immediate: true })

@@ -19,11 +19,11 @@
 .o-input {
   display: block;
   width: 100%;
-  padding: var(--o-padding);
+  padding: 2.5px 5px;
   font-weight: 400;
   line-height: 1.5;
   color: var(--o-text);
-  background-color: var(--o-bg);
+  background-color: var(--box-body);
   background-clip: padding-box;
   border-style: solid;
   border-width: var(--o-border-width);
@@ -39,7 +39,7 @@
 }
 
 .o-input:focus {
-  color: var(--o-text);
+  color: var(--text-light);
   background-color: var(--o-bg);
   border-color: var(--primary);
   outline: 0;
@@ -64,4 +64,46 @@ input[type="number"].o-number::-webkit-inner-spin-button {
 
 input[type="number"].o-number {
   -moz-appearance: textfield;
+}
+
+.o-input-wrapper {
+  position: relative;
+}
+
+.o-input-wrapper .o-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  color: #8c8c8c;
+}
+
+.o-input-wrapper .o-icon > svg > path {
+  fill: #2a2a2a;
+}
+
+/* .o-input-wrapper .o-icon svg, .o-input-wrapper .o-icon img {
+  width: 1em;
+} */
+
+.o-input-wrapper.left .o-input {
+  padding-left: 2.25em;
+}
+
+.o-input-wrapper.left .o-icon.left {
+  left: 1.25em;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.o-input-wrapper.right .o-input {
+  padding-right: 2.25em;
+}
+
+.o-input-wrapper.right .o-icon.right {
+  right: 1.25em;
+  transform: translateY(-50%) translateX(50%);
 }

@@ -125,7 +125,7 @@ const checkRoute = (tabLink) => {
 .router-link-active {
     color: var(--text-light);
     border-radius: 6px;
-    box-shadow: 1px 1px 10px var(--secondary);
+    /* box-shadow: 1px 1px 10px var(--secondary); */
     background-color: var(--primary);
 }
 
@@ -148,7 +148,7 @@ const checkRoute = (tabLink) => {
 .parent:has(.router-link-active) .head {
     color: var(--text-light);
     display: flex;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); */
     background: var(--primary);
     align-items: center;
 }
